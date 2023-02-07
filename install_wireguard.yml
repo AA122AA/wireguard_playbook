@@ -1,0 +1,18 @@
+---
+- name: install wireguard
+  hosts: webservers
+
+  tasks:
+  - name: install wireguard
+    apt:
+      name: wireguard
+      state: latest
+
+  - name: create keys
+    shell:
+      cmd: wg genkey | tee /etc/wireguard/privatekey | wg pubkey | tee /etc/wireguard/publickey
+      chdir: /etc/wireguard
+      creates: /etc/wireguard/publickey
+
+
+        надо дописать про создание директории helper и копировании скриптом по нату
