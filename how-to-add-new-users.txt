@@ -1,0 +1,54 @@
+# Исструкция по созданию новых пользаков
+
+1. Вводим эту команду
+wg genkey | sudo tee /etc/wireguard/<name>_privatekey | wg pubkey | sudo tee /etc/wireguard/<name>_publickey
+
+2. В файле /etc/wireguard/wg0.conf вводим следующее
+---
+# Кто это
+[Peer]
+PublicKey = <users_publickey>
+AllowedIPs = 10.0.0.<number>/32
+---
+Вместо <users_publickey> — заменяем на содержимое файла /etc/wireguard/<name>_publickey
+
+3. Перезагружаем systemd сервис с wireguard:
+systemctl restart wg-quick@wg0
+systemctl status wg-quick@wg0
+
+4. Создаем пользовательский конфиг с помощью темплейта и ~/ папки
+
+
+
+
+
+
+wg genkey | sudo tee /etc/wireguard/gromov_phone_privatekey | wg pubkey | sudo tee /etc/wireguard/gromov_phone_publickey
+wg genkey | sudo tee /etc/wireguard/bakanov_privatekey | wg pubkey | sudo tee /etc/wireguard/bakanov_publickey
+wg genkey | sudo tee /etc/wireguard/kim_privatekey | wg pubkey | sudo tee /etc/wireguard/kim_publickey
+wg genkey | sudo tee /etc/wireguard/stadolin_privatekey | wg pubkey | sudo tee /etc/wireguard/stadolin_publickey
+wg genkey | sudo tee /etc/wireguard/galimzynov_privatekey | wg pubkey | sudo tee /etc/wireguard/galimzynov_publickey
+wg genkey | sudo tee /etc/wireguard/ignatov_privatekey | wg pubkey | sudo tee /etc/wireguard/ignatov_publickey
+wg genkey | sudo tee /etc/wireguard/sochienkova_privatekey | wg pubkey | sudo tee /etc/wireguard/sochienkova_publickey
+wg genkey | sudo tee /etc/wireguard/shtamm_privatekey | wg pubkey | sudo tee /etc/wireguard/shtamm_publickey
+wg genkey | sudo tee /etc/wireguard/yakovleva_privatekey | wg pubkey | sudo tee /etc/wireguard/yakovleva_publickey
+wg genkey | sudo tee /etc/wireguard/ionov_privatekey | wg pubkey | sudo tee /etc/wireguard/ionov_publickey
+wg genkey | sudo tee /etc/wireguard/tokarev_privatekey | wg pubkey | sudo tee /etc/wireguard/tokarev_publickey
+wg genkey | sudo tee /etc/wireguard/makarenko_privatekey | wg pubkey | sudo tee /etc/wireguard/makarenko_publickey
+wg genkey | sudo tee /etc/wireguard/groshenko_privatekey | wg pubkey | sudo tee /etc/wireguard/groshenko_publickey
+wg genkey | sudo tee /etc/wireguard/bolshakova_privatekey | wg pubkey | sudo tee /etc/wireguard/bolshakova_publickey
+wg genkey | sudo tee /etc/wireguard/paramonov_privatekey | wg pubkey | sudo tee /etc/wireguard/paramonov_publickey
+wg genkey | sudo tee /etc/wireguard/tokareva_privatekey | wg pubkey | sudo tee /etc/wireguard/tokareva_publickey
+wg genkey | sudo tee /etc/wireguard/gusika_privatekey | wg pubkey | sudo tee /etc/wireguard/gusika_publickey
+wg genkey | sudo tee /etc/wireguard/kim_vm_privatekey | wg pubkey | sudo tee /etc/wireguard/kim_vm_publickey
+wg genkey | sudo tee /etc/wireguard/kim_mac_privatekey | wg pubkey | sudo tee /etc/wireguard/kim_mac_publickey
+wg genkey | sudo tee /etc/wireguard/kotik_privatekey | wg pubkey | sudo tee /etc/wireguard/kotik_publickey
+wg genkey | sudo tee /etc/wireguard/petrova_privatekey | wg pubkey | sudo tee /etc/wireguard/petrova_publickey
+wg genkey | sudo tee /etc/wireguard/obrazsova_privatekey | wg pubkey | sudo tee /etc/wireguard/obrazsova_publickey
+wg genkey | sudo tee /etc/wireguard/geordieva_privatekey | wg pubkey | sudo tee /etc/wireguard/geordieva_publickey
+wg genkey | sudo tee /etc/wireguard/macServer_privatekey | wg pubkey | sudo tee /etc/wireguard/macServer_publickey
+wg genkey | sudo tee /etc/wireguard/sinkevichiute_privatekey | wg pubkey | sudo tee /etc/wireguard/sinkevichiute_publickey
+wg genkey | sudo tee /etc/wireguard/seredova_privatekey | wg pubkey | sudo tee /etc/wireguard/seredova_publickey
+wg genkey | sudo tee /etc/wireguard/timofeev_privatekey | wg pubkey | sudo tee /etc/wireguard/timofeev_publickey
+wg genkey | sudo tee /etc/wireguard/surov_privatekey | wg pubkey | sudo tee /etc/wireguard/surov_publickey
+wg genkey | sudo tee /etc/wireguard/surova_privatekey | wg pubkey | sudo tee /etc/wireguard/surova_publickey
